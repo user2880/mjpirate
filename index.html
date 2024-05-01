@@ -14,23 +14,53 @@
             line-height: 1.6;
         }
         header {
-            background-color: #343a40;
+            background-color: #f95d48;
             color: #fff;
             padding: 20px 0;
+            text-align: center;
         }
         nav {
-            background-color: #212529;
-            padding: 10px 0;
-        }
-        nav a {
+            background-color: #343a40;
             color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            transition: color 0.3s;
+            padding: 10px 0;
+            text-align: right;
+            position: relative;
         }
-        nav a:hover {
-            color: #ffc107;
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        .menu-icon span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin-bottom: 5px;
+        }
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background-color: #343a40;
+                text-align: center;
+                width: 100%;
+                z-index: 1000;
+            }
+            nav ul.active {
+                display: block;
+            }
+            nav a {
+                display: block;
+                padding: 10px 0;
+            }
         }
         .container {
             max-width: 800px;
@@ -50,12 +80,19 @@
 </head>
 <body>
     <header>
-        <h1>Abdullahi Abdinoor</h1>
+        <h1>Welcome to My Website</h1>
     </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="education.html">Education</a>
-        <a href="about.html">About</a>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
     <div class="container">
         <h2>Welcome to My Website</h2>
@@ -63,5 +100,12 @@
         <p>This website is a platform for sharing my knowledge, experiences, and projects in the field.</p>
         <p>Feel free to explore and reach out to me for any inquiries or collaborations!</p>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
